@@ -64,9 +64,7 @@ ca825ad95066b10f5e080db8cb24b165
 
 ## 5. Check that you can classify normal audio correctly
 
-> If you want to test your own .wav files, you can record the .wav file by using the relevant software,
-
-or using the SoX to convert the format of the .wav files.
+> If you want to test your own .wav files, you can record the .wav file by using the relevant software, or using the SoX to convert the format of the .wav files.
 
 python3 classify.py --in sample-000000.wav --restore_path deepspeech-0.4.1-checkpoint/model.v0.4.1
 
