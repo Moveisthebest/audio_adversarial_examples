@@ -33,6 +33,7 @@ pip3 install tensorflow-gpu==1.14 progressbar numpy scipy pandas==0.24.0 python_
 ### 1a. Make sure you have installed git lfs. Otherwise later steps will mysteriously fail.
 
 apt-get install git-lfs (if you use linux)
+
 brew install git-lfs (if you use mac)
 
 ## 2. Clone the Mozilla DeepSpeech repository into a folder called DeepSpeech:
@@ -48,18 +49,24 @@ pip install https://taskcluster-artifacts.net/bftpNURqQkixvDjOFLSlCQ/0/public/ds
 (cd DeepSpeech; git checkout tags/v0.4.1)
 
 ### 2c. If you get an error with tflite_convert, comment out DeepSpeech.py Line 21
-# from tensorflow.contrib.lite.python import tflite_convert
+ #from tensorflow.contrib.lite.python import tflite_convert
 
 ## 3. Download the DeepSpeech model
 
 wget https://github.com/mozilla/DeepSpeech/releases/download/v0.4.1/deepspeech-0.4.1-checkpoint.tar.gz
+
 tar -xzf deepspeech-0.4.1-checkpoint.tar.gz
 
 ## 4. Verify that you have a file deepspeech-0.4.1-checkpoint/model.v0.4.1.data-00000-of-00001
 Its MD5 sum should be
+
 ca825ad95066b10f5e080db8cb24b165
 
 ## 5. Check that you can classify normal audio correctly
+
+> If you want to test your own .wav files, you can record the .wav file by using the relevant software,
+
+or using the SoX to convert the format of the .wav files.
 
 python3 classify.py --in sample-000000.wav --restore_path deepspeech-0.4.1-checkpoint/model.v0.4.1
 
